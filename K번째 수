@@ -1,0 +1,7 @@
+def solution(array, commands):
+    answer = []
+    for k in range(len(commands)):
+        sliced_array=array[commands[k][0]-1:commands[k][1]]
+        sliced_array.sort()
+        answer.append(sliced_array[commands[k][2]-1])
+    return answer
