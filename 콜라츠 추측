@@ -1,0 +1,16 @@
+def solution(num):
+    answer = 0
+    if(num==1):
+        return answer
+    else:
+        while(answer<=500):
+            answer+=1
+            if(num%2==0):
+                num=num/2
+                if(num==1):
+                    return answer
+            else:
+                num=num*3+1
+                if(num==1):
+                    return answer
+    return -1
