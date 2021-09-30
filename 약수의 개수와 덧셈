@@ -1,0 +1,17 @@
+def solution(left, right):
+    answer = 0
+    for k in range(left,right+1):
+        cnt=isEven(k)
+        if (cnt%2==0):
+            answer+=k
+        else:
+            answer-=k
+    return answer
+
+
+def isEven(num):
+    count=0
+    for k in range(1,num+1):
+        if num%k==0:
+            count+=1
+    return count
