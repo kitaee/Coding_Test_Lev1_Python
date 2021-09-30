@@ -1,0 +1,10 @@
+def solution(price, money, count):
+    answer = 0
+    total_money=0
+    for k in range(1,count+1):
+        total_money+=(k*price)
+    if(total_money>money):
+        answer=total_money-money
+    else:
+        answer=0
+    return answer
