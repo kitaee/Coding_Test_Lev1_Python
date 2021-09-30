@@ -1,0 +1,23 @@
+def solution(board, moves):
+    answer = 0
+    bucket=[]
+    for k in range(len(moves)):
+        index=0
+        none_data=False
+        while(board[index][moves[k]-1]==0):
+            index+=1
+            if(index==len(board)):
+                none_data=True
+                break
+        if(none_data):
+            continue
+        else:
+            bucket.append(board[index][moves[k]-1])
+            board[index][moves[k]-1]=0
+            if(len(bucket)>=2):
+                if(bucket[-1]==bucket[-2]):
+                    answer+=2
+                    bucket.pop()
+                    bucket.pop()
+                
+    return answer
