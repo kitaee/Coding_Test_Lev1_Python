@@ -1,0 +1,26 @@
+def solution(lottos, win_nums):
+    answer = []
+    cnt=0
+    for k in range(len(lottos)):
+        if lottos[k] in win_nums:
+            cnt+=1
+    max_rank=getRank(cnt+lottos.count(0))
+    min_rank=getRank(cnt)
+    answer.append(max_rank)
+    answer.append(min_rank)
+    return answer
+    
+    
+def getRank(num):
+    if num==6:
+        return 1
+    elif num==5:
+        return 2
+    elif num==4:
+        return 3
+    elif num==3:
+        return 4
+    elif num==2:
+        return 5
+    else:
+        return 6
