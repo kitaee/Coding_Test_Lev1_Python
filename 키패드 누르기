@@ -1,0 +1,30 @@
+def solution(numbers, hand):
+    answer = ''
+    last_left_position=10
+    last_right_position=12
+    for k in range(len(numbers)):
+        if(numbers[k]==1 or numbers[k]==4 or numbers[k]==7):
+            answer+='L'
+            last_left_position=numbers[k]
+        elif(numbers[k]==3 or numbers[k]==6 or numbers[k]==9):
+            answer+='R'
+            last_right_position=numbers[k]
+        else:
+            if(numbers[k]==0):
+                numbers[k]=11
+            left_distance=(abs(numbers[k]-last_left_position)//3)+(abs(numbers[k]-last_left_position)%3)
+            right_distance=(abs(numbers[k]-last_right_position)//3)+(abs(numbers[k]-last_right_position)%3)
+            if(left_distance<right_distance):
+                answer+='L'
+                last_left_position=numbers[k]
+            elif(left_distance>right_distance):
+                answer+='R'
+                last_right_position=numbers[k]
+            else:
+                if(hand=='right'):
+                    answer+='R'
+                    last_right_position=numbers[k]
+                else:
+                    answer+='L'
+                    last_left_position=numbers[k]
+    return answer
