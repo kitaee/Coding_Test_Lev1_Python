@@ -1,0 +1,20 @@
+def solution(n, lost, reserve):
+    lost.sort()
+    answer = 0
+    can_borrow=[]
+    for k in range(len(reserve)):
+        if reserve[k] not in lost:
+            can_borrow.append(reserve[k])
+        else:
+            lost.remove(reserve[k])
+    answer=n-len(lost)
+    for k in range(len(lost)):
+        if lost[k]-1 in can_borrow:
+            answer+=1
+            can_borrow.remove(lost[k]-1)
+        elif lost[k]+1 in can_borrow:
+            answer+=1
+            can_borrow.remove(lost[k]+1)
+        else:
+            continue
+    return answer
