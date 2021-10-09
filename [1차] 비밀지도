@@ -1,0 +1,13 @@
+def solution(n, arr1, arr2):
+    answer = []
+    for i in range(len(arr1)):
+        bin_a=(bin(arr1[i])[2::]).zfill(len(arr1))
+        bin_b=(bin(arr2[i])[2::]).zfill(len(arr1))
+        string=''
+        for j in range(len(bin_a)):
+            if((str((int(bin_a[j]) | int(bin_b[j]))))=='1'):
+                string+='#'
+            else:
+                string+=' '
+        answer.append(string)
+    return answer
